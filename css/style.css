@@ -1,3 +1,7 @@
+html * {
+    cursor: url("../resources/cursor.cur"), pointer;
+}
+
 body {
     height: 100%;
     margin: 0;
@@ -6,6 +10,13 @@ body {
     background-repeat: no-repeat;
 }
 
-h1 {
-    color: yellow;
+header img {
+    animation: efectoPeli 2s ease forwards;
+}
+
+@keyframes efectoPeli {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
 }
