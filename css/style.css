@@ -24,3 +24,7 @@ header img {
 .imagenes-pelis img{
     max-width: 400px;
 }
+
+.gradient-custom {
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+}
