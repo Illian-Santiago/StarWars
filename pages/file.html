@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">d
+    <head>
+        <title>Wookiee Wonders</title>
+        <link rel="icon"
+            href="https://cdn-icons-png.flaticon.com/128/10829/10829277.png">
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" /> -->
+
+        <!-- TailWind -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+    <title> API jquery - SWAPI </title>
+
+    <body>
+        <script
+            src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+        <script>
+    
+        
+        $(document).ready(function(){
+         let counter = 0; 
+          $("body")
+            .append('<h1>Load a Character</h1>')
+            .append('<button>Click HERE</button><br>')
+            .append('<section></section>')
+            .css({
+            textAlign: 'center',
+            color: 'gold',
+            backgroundColor: 'black',
+            fontFamily: 'Krona One', 
+            })   
+          $('section').css({
+            display: 'flex',
+            'flex-wrap': 'wrap',
+            'justify-content': 'center',
+    
+    
+          })
+          
+          const $button1 = $('button')
+          $button1.on("click", function(){
+             counter += 1;
+            if (counter == 89){counter = 1};
+            
+            $("section")
+              .append('<div></div>')
+            $("div").last().addClass('item'+counter)          
+              .css({
+                'font-size' : '12px',
+                'border' : '1px solid red',
+                'display' : 'inline-block',
+                'width' : '100px',
+                'height' : '130px',
+                'background-color' : 'coral',
+                'background-repeat' : 'no-repeat',
+                'background-size' : 'cover',
+                'margin' : '2px'
+               });
+            
+             $.get(`https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/id/${counter}.json`, function(data) {
+             $(".item"+counter).text( counter +' - '+data['name'])   
+              .css("background-image", "url(" +  data['image'] + ")");     
+            })
+          })
+          
+         $button1
+             .on("mouseenter", function(){
+                $button1.css({color: 'blue'})
+             })
+             .on("mouseleave", function(){
+                $button1.css({color: 'black'})
+             })
+        })
+        
+    
+    </script>
+
+    </body>
+
+    <!--           console.log("clicked") -->
+</html>
