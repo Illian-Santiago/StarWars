@@ -1,0 +1,55 @@
+html * {
+    cursor: url("../resources/cursor.cur"), pointer;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0') no-repeat center center/cover;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.gradient-custom {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.card {
+    background-color: #1c1c1c;
+    border-radius: 1rem;
+    border: 1px solid #444;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.text-highlight {
+    color: #f9d71c;
+}
+
+.btn-outline-light {
+    border-color: #f9d71c;
+    color: #f9d71c;
+}
+
+.btn-outline-light:hover {
+    background-color: #f9d71c;
+    color: #1c1c1c;
+}
+
+.form-control {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+.form-control:focus {
+    border-color: #f9d71c;
+    box-shadow: 0 0 5px #f9d71c;
+}
+
+.form-label {
+    color: #f9d71c;
+}
+
+.text-muted {
+    color: rgba(255, 255, 255, 0.5);
+}
