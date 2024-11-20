@@ -20,3 +20,7 @@ header img {
         opacity: 0;
     }
 }
+
+.imagenes-pelis img{
+    max-width: 400px;
+}
