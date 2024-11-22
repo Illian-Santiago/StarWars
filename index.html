@@ -32,7 +32,7 @@
 
                 <a href="pages/characters.html">
                     <button
-                        class="bg-transparent hover:bg-yellow-500 text-yellow-500 font-semibold hover:text-black py-2 px-4 border border-yellow-500 hover:border-transparent rounded">
+                        class="bg-transparent hover:bg-white text-white font-semibold hover:text-black py-2 px-4 border border-white hover:border-transparent rounded">
                         Characters
                     </button>
                 </a>
@@ -64,37 +64,35 @@
         </div>
     </main>
 
-    <footer class="bg-gray-900 text-gray-400 py-6">
-        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
-            <div class="flex items-center mb-4 md:mb-0">
-                <img src="resources/cc.png" alt="Certificado" class="h-10 mr-2">
-                <p class="text-sm">&copy; 2024 Your Company, Inc. All rights reserved.</p>
+    <footer
+        class="bg-gray-900 text-gray-400 py-6 container mx-auto flex flex-col md:flex-row items-center justify-between rounded-lg">
+        <div class="flex items-center mb-4 md:mb-0">
+            <img src="resources/cc.png" alt="Certificado" class="h-10 mr-2">
+            <p class="text-sm">&copy; 2024 Your Company, Inc. All rights reserved.</p>
+        </div>
+
+        <div class="mb-4 md:mb-0">
+            <div id="hola" class="flex items-center text-yellow-500">
+                <i class="fas fa-jedi text-2xl"></i>
+                <span class="ml-2 font-bold text-sm uppercase">The force</span>
             </div>
 
-            <div class="flex justify-center mt-4">
-                <div class="bg-gray-800 border-2 border-gray-600 p-4 rounded-lg shadow-md flex items-center space-x-4">
-                    <audio id="background-music" controls class="bg-transparent w-72">
-                        <source src="../resources/music.mp3" type="audio/mp3">
-                        Tu navegador no soporta el elemento de audio.
-                    </audio>
-                    <div class="flex items-center text-yellow-500">
-                        <i class="fas fa-jedi text-2xl"></i>
-                        <span class="ml-2 font-bold text-sm uppercase">The
-                            Force</span>
-                    </div>
-                </div>
-            </div>
+            <audio id="background-music" controls class="bg-transparent w-72">
+                <source src="../resources/music.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </div>
 
-            <div class="flex space-x-6 mb-4 md:mb-0">
-                <a href="#" class="hover:text-yellow-500 transition-colors">About</a>
-                <a href="#" class="hover:text-yellow-500 transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-yellow-500 transition-colors">Licensing</a>
+        <div class="flex space-x-6 mb-4 md:mb-0">
+            <a href="#" class="hover:text-yellow-500 transition-colors">About</a>
+            <a href="#" class="hover:text-yellow-500 transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-yellow-500 transition-colors">Licensing</a>
 
-                <a href="https://www.instagram.com/starwars?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                    class="text-gray-400 hover:text-gray-300"><i class="fab fa-instagram"></i></a>
-                <a href="https://github.com/Illian-Santiago/StarWars" class="text-gray-400 hover:text-gray-300"><i
-                        class="fab fa-github"></i></a>
-            </div>
+            <a href="https://www.instagram.com/starwars?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                class="text-gray-400 hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/Illian-Santiago/StarWars" class="text-gray-400 hover:text-gray-300">
+                <img src="/resources/git.gif" style="height: 60%;">
+            </a>
         </div>
     </footer>
 
