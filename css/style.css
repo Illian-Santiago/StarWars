@@ -10,8 +10,10 @@ body {
     background-repeat: no-repeat;
 }
 
-header img {
+img[alt="Wookiee Wonders"] {
     animation: efectoPeli 2s ease forwards;
+    margin-left: 5%;
+    margin-right: 15%;
 }
 
 @keyframes efectoPeli {
@@ -21,7 +23,7 @@ header img {
     }
 }
 
-.imagenes-pelis img{
+.imagenes-pelis img {
     max-width: 400px;
 }
 
