@@ -5,3 +5,85 @@ function textToSpeech() {
   const utterance = new SpeechSynthesisUtterance(text);
   window.speechSynthesis.speak(utterance);
 }
+
+const $button1 = $('#cambiarMain');
+const $main = $('main');
+
+$("main")
+  .append('<h1>Load a Character</h1>')
+  .append('<button id="loadCharacterBtn">Cargar Personajes</button><br>')
+  .append('<p id="counterDisplay">Characters Loaded: 0</p><br>');
+
+$main.css({
+  display: 'flex',
+  'flex-wrap': 'wrap',
+  'justify-content': 'center',
+});
+
+$button1.on("click", function () {
+  $main.empty();
+  let counter = 0;
+
+  for (let i = 1; i <= 88; i++) {
+    $.get(`https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/id/${i}.json`, function (data) {
+      counter++;
+      $("#counterDisplay").text(`Characters Loaded: ${counter}`);
+
+      $main
+        .append('<div></div>');
+
+      $main.find("div").last().addClass('item' + i)
+        .css({
+          'font-size': '12px',
+          'border': '1px solid red',
+          'display': 'inline-block',
+          'width': '100px',
+          'height': '130px',
+          'background-color': 'coral',
+          'background-repeat': 'no-repeat',
+          'background-size': 'cover',
+          'margin': '2px',
+        });
+
+      $main.find(".item" + i).text(i + ' - ' + data['name'])
+        .css("background-image", "url(" + data['image'] + ")");
+    });
+  }
+
+  $button1.text('Cargar Películas');
+  $button1.off("click").on("click", function () {
+    loadMovies();
+  });
+});
+
+function loadMovies() {
+  $main.empty();
+
+  const movies = [
+    { title: "Ascenso Skywalker", image: "resources/AscensoSkywalker.jpg" },
+    { title: "Imperio Contraataca", image: "resources/ImperioContraataca.jpg" },
+    { title: "Últimos Jedi", image: "resources/UltimosJedi.jpg" }
+  ]
+
+  movies.forEach((movie, index) => {
+    $main.append('<div></div>');
+    $main.find("div").last().addClass('movie' + index)
+      .css({
+        'font-size': '12px',
+        'border': '1px solid blue',
+        'display': 'inline-block',
+        'width': '100px',
+        'height': '130px',
+        'background-color': 'lightblue',
+        'background-repeat': 'no-repeat',
+        'background-size': 'cover',
+        'margin': '2px',
+      });
+
+    $main.find(".movie" + index).text(movie.title)
+      .css("background-image", "url(" + movie.image + ")");
+  });
+
+  $button1.text('Cargar Personajes');
+  $button1.off("click").on("click", function () { loadCharacters() })
+}
