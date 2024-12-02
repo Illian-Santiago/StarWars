@@ -9,18 +9,9 @@ function textToSpeech() {
 const $button1 = $('#cambiarMain');
 const $main = $('main');
 
-$("main")
-  .append('<h1>Load a Character</h1>')
-  .append('<button id="loadCharacterBtn">Cargar Personajes</button><br>')
-  .append('<p id="counterDisplay">Characters Loaded: 0</p><br>');
+$button1.on("click", function () { loadCharacters() })
 
-$main.css({
-  display: 'flex',
-  'flex-wrap': 'wrap',
-  'justify-content': 'center',
-});
-
-$button1.on("click", function () {
+function loadCharacters() {
   $main.empty();
   let counter = 0;
 
@@ -47,14 +38,12 @@ $button1.on("click", function () {
 
       $main.find(".item" + i).text(i + ' - ' + data['name'])
         .css("background-image", "url(" + data['image'] + ")");
-    });
-  }
+    })
 
-  $button1.text('Cargar Películas');
-  $button1.off("click").on("click", function () {
-    loadMovies();
-  });
-});
+    $button1.text('Cargar Películas');
+    $button1.off("click").on("click", function () { loadMovies() });
+  }
+}
 
 function loadMovies() {
   $main.empty();
@@ -68,17 +57,6 @@ function loadMovies() {
   movies.forEach((movie, index) => {
     $main.append('<div></div>');
     $main.find("div").last().addClass('movie' + index)
-      .css({
-        'font-size': '12px',
-        'border': '1px solid blue',
-        'display': 'inline-block',
-        'width': '100px',
-        'height': '130px',
-        'background-color': 'lightblue',
-        'background-repeat': 'no-repeat',
-        'background-size': 'cover',
-        'margin': '2px',
-      });
 
     $main.find(".movie" + index).text(movie.title)
       .css("background-image", "url(" + movie.image + ")");
