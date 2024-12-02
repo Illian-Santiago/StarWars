@@ -6,16 +6,20 @@ function loadCharacters() {
 
         $('main').empty();
 
+        $('main').append('<div></div>');
+        $('main').find("div").addClass('container')
+
         for (let i = 1; i <= 88; i++) {
             $.get(`https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/id/${i}.json`, function (data) {
+
+                $('main').find(".container").append(`
+                    <div class="card">
+                    <h2 class="card-title">${data.name}</h2>
+                    <img src=`+ data['image'] + `></img>
+                    </div>`
+                );
+
                 counter++;
-                $("#counterDisplay").text(`Characters Loaded: ${counter}`);
-
-                $('main').append('<div></div>');
-
-                $('main').find("div").last().addClass('personaje')
-
-                $('main').find("div").last().text(data['name']).css("background-image", "url(" + data['image'] + ")");
             })
 
             $('#cambiarMain').text('Cargar Películas');
