@@ -1,44 +1,26 @@
-$('#cambiarMain').on("click", function () { loadCharacters() })
+$('#cambiarMain').on("click", loadCharacters);
 
 function loadCharacters() {
-    let counter = 0;
+    if ($('#cambiarMain')[0].innerText == "Personajes") {
+        let counter = 0;
 
-    $('main').empty();
+        $('main').empty();
 
-    console.log($('#cambiarMain'));
+        for (let i = 1; i <= 88; i++) {
+            $.get(`https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/id/${i}.json`, function (data) {
+                counter++;
+                $("#counterDisplay").text(`Characters Loaded: ${counter}`);
 
-    for (let i = 1; i <= 88; i++) {
-        $.get(`https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/id/${i}.json`, function (data) {
-            counter++;
-            $("#counterDisplay").text(`Characters Loaded: ${counter}`);
+                $('main').append('<div></div>');
 
-            $('main').append('<div></div>');
+                $('main').find("div").last().addClass('personaje')
 
-            $('main').find("div").last().addClass('personaje')
+                $('main').find("div").last().text(data['name']).css("background-image", "url(" + data['image'] + ")");
+            })
 
-            $('main').find("div").last().text(data['name']).css("background-image", "url(" + data['image'] + ")");
-        })
-
-        $('#cambiarMain').text('Cargar Películas');
-        $('#cambiarMain').off("click").on("click", function () { loadMovies() });
+            $('#cambiarMain').text('Cargar Películas');
+        }
+    } else {
+        location.reload();
     }
-}
-
-function loadMovies() {
-    const movies = [
-        { title: "Ascenso Skywalker", image: "resources/AscensoSkywalker.jpg" },
-        { title: "Imperio Contraataca", image: "resources/ImperioContraataca.jpg" },
-        { title: "Últimos Jedi", image: "resources/UltimosJedi.jpg" }
-    ]
-
-    $('main').empty();
-
-    movies.forEach((movie, index) => {
-        $('main').append('<div></div>');
-        $('main').find("div").last().addClass('pelicula');
-        $('main').find("div").last().text(movie.title).css("background-image", "url(" + movie.image + ")");
-    });
-
-    $('#cambiarMain').text('Cargar Personajes');
-    $('#cambiarMain').off("click").on("click", function () { loadCharacters() })
 }
