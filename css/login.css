@@ -1,5 +1,5 @@
 html * {
-    cursor: url("../resources/cursor.cur"), pointer;
+    cursor: url("/resources/cursor.cur"), pointer;
 }
 
 body {
